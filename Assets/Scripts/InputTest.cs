@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class InputTest : MonoBehaviour
 {
 
-    public InputActionProperty testActionValue;
+    [SerializeField] private InputActionProperty testActionValue;
+    [SerializeField] private InputActionProperty testActionButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,5 +18,8 @@ public class InputTest : MonoBehaviour
     {
         float value = testActionValue.action.ReadValue<float>();
         Debug.Log("Input Action Value: " + value);
+
+        bool button = testActionButton.action.IsPressed();
+        Debug.Log("Input Action button: " + button);
     }
 }

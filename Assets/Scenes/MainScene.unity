@@ -1490,6 +1490,18 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  testActionButton:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Test Action Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5c74e573-1cda-4798-817f-b6d65641675d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &965756789
 Transform:
   m_ObjectHideFlags: 0
