@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1762511068912487753}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01717, y: 0.087, z: 0.015}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -102,7 +102,8 @@ GameObject:
   - component: {fileID: 4665754309288492410}
   - component: {fileID: 6892693628949555935}
   - component: {fileID: 7175394118404745034}
-  - component: {fileID: 6962803044006986737}
+  - component: {fileID: 8535068947743886949}
+  - component: {fileID: 1028312121512671911}
   m_Layer: 3
   m_Name: Splurt
   m_TagString: Untagged
@@ -168,8 +169,8 @@ MonoBehaviour:
   camera: {fileID: 0}
   sizeRange: {x: 0.02, y: 0.2}
   launchMod: {x: 3, y: 3, z: 3}
---- !u!65 &6962803044006986737
-BoxCollider:
+--- !u!135 &8535068947743886949
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -187,5 +188,26 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 0.1}
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1028312121512671911
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601521544311133345}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 4, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
