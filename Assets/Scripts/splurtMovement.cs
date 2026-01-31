@@ -27,6 +27,7 @@ public class splurtMovement : MonoBehaviour
 
         if ((Keyboard.current.spaceKey.isPressed) && (state == "WAIT")) {
             launchSplurt();
+
         }
 
     }
@@ -42,10 +43,14 @@ public class splurtMovement : MonoBehaviour
         rb.linearVelocity = new Vector3(launchMod[0]*rb.linearVelocity.x, launchMod[1]*Mathf.Abs(rb.linearVelocity.y), launchMod[2]*rb.linearVelocity.z);
     }
 
-    void onCollisionEnter(Collision collisionInfo) 
+    void OnCollisionEnter(Collision collision) 
     {
         state = "LANDED";
         print("landed!");
         rb.linearVelocity = new Vector3(0, 0, 0);
+        rb.angularVelocity = new Vector3(0, 0, 0);
+        rb.useGravity = false;
+
+        transform.rotation = Quaternion.FromToRotation(Vector3.forward, collision.contacts[0].normal);
     }
 }
