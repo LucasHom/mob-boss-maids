@@ -1,0 +1,45 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class MakeSplurt : MonoBehaviour
+{
+
+    public GameObject splurt;
+    public int count = 1000;
+    public Vector3 pos = new Vector3(0, .1f, 0);
+    public Vector2 sizeRange = new Vector2(.05f, .3f);
+    public Vector3 launchMod = new Vector3(3, 7, 3);
+    
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame) {
+            beginSplurt();
+        }   
+    }
+
+
+    public void beginSplurt(GameObject splurt = null, int count = default(int), Vector3 pos = default(Vector3), Vector2 sizeRange = default(Vector2), Vector3 launchMod = default(Vector3)) {
+        if (splurt == null) splurt = this.splurt;
+        if (count == default(int)) count = this.count;
+        if (pos == default(Vector3)) pos = this.pos;
+        if (sizeRange == default(Vector2)) sizeRange = this.sizeRange;
+        if (launchMod == default(Vector3)) launchMod = this.launchMod;
+        
+        for (int i = 0; i < count; i++) {
+            GameObject newSplurt = Instantiate(splurt, pos, Quaternion.identity);
+            splurtMovement sm = newSplurt.GetComponent<splurtMovement>();
+            sm.sizeRange = sizeRange;
+            sm.launchMod = launchMod;
+            sm.camera = Camera.main.gameObject;
+        }
+    }
+}
