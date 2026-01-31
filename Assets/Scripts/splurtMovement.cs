@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class splurtMovement : MonoBehaviour
 {
     public GameObject camera;
+    public Vector2 sizeRange = new Vector2(.05f, .3f);
+    public Vector3 launchMod = new Vector3(3, 7, 3);
 
     private string state = "WAIT"; 
     private Rigidbody rb; 
@@ -26,7 +28,7 @@ public class splurtMovement : MonoBehaviour
         if ((Keyboard.current.spaceKey.isPressed) && (state == "WAIT")) {
             launchSplurt();
         }
-        
+
     }
 
     public void launchSplurt()
@@ -35,8 +37,15 @@ public class splurtMovement : MonoBehaviour
         rb.useGravity = true;
         print("launch!");
 
-        this.transform.localScale = Mathf.Pow(Random.Range(.05f, .5f), 2) * new Vector3(1, 1, 1);
-        // rb.linearVelocity = .05f * Random.insideUnitSphere;
-        // rb.linearVelocity = new Vector3(rb.linearVelocity.x, Mathf.Abs(rb.linearVelocity.y), rb.linearVelocity.z);
+        this.transform.localScale = Mathf.Pow(Random.Range(sizeRange[0], sizeRange[1]), 2) * new Vector3(1, 1, 1);
+        rb.linearVelocity = Random.insideUnitSphere;
+        rb.linearVelocity = new Vector3(launchMod[0]*rb.linearVelocity.x, launchMod[1]*Mathf.Abs(rb.linearVelocity.y), launchMod[2]*rb.linearVelocity.z);
+    }
+
+    void onCollisionEnter(Collision collisionInfo) 
+    {
+        state = "LANDED";
+        print("landed!");
+        rb.linearVelocity = new Vector3(0, 0, 0);
     }
 }
