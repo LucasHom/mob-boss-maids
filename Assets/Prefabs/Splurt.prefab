@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 811bcc86cb062f647b22a37e5e8b6d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4665754309288492410}
   - component: {fileID: 6892693628949555935}
   - component: {fileID: 7175394118404745034}
-  - component: {fileID: 8004541090937289881}
+  - component: {fileID: 6962803044006986737}
   m_Layer: 3
   m_Name: Splurt
   m_TagString: Untagged
@@ -151,7 +151,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7175394118404745034
 MonoBehaviour:
@@ -168,8 +168,8 @@ MonoBehaviour:
   camera: {fileID: 0}
   sizeRange: {x: 0.02, y: 0.2}
   launchMod: {x: 3, y: 3, z: 3}
---- !u!135 &8004541090937289881
-SphereCollider:
+--- !u!65 &6962803044006986737
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -187,5 +187,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 5, y: 5, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}

@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float cameraSpeed = 50f;
-    public float cameraRotateSpeed = 1f;
-    public float cameraZoomSpeed = 100f;
+    public float cameraSpeed = 10f;
+    public float cameraRotateSpeed = 25f;
+    public float cameraZoomSpeed = 50f;
     public Vector3 startPos = new Vector3(0f, 50f, 0f);
     public Vector3 startAng = new Vector3(35f, 90f, 0f);
 
