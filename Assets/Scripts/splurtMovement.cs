@@ -7,7 +7,7 @@ public class splurtMovement : MonoBehaviour
     public Vector2 sizeRange = new Vector2(.05f, .3f);
     public Vector3 launchMod = new Vector3(3, 7, 3);
 
-    private string state = "WAIT"; 
+    private string state = "INAIR"; 
     private Rigidbody rb; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,6 +15,7 @@ public class splurtMovement : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody>();
         rb.useGravity = false;
+        launchSplurt();
 
         
         
@@ -25,10 +26,10 @@ public class splurtMovement : MonoBehaviour
     {
         if ((state == "WAIT") || (state == "INAIR")) transform.LookAt(camera.transform.position, -Vector3.up);
 
-        if ((Keyboard.current.spaceKey.isPressed) && (state == "WAIT")) {
-            launchSplurt();
+        // if ((Keyboard.current.spaceKey.isPressed) && (state == "WAIT")) {
+        //     
 
-        }
+        // }
 
     }
 
