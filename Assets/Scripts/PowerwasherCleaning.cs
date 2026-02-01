@@ -30,9 +30,12 @@ public class PowerwasherCleaning : MonoBehaviour
             // sphere.transform.position = hit.point;
             // print("Did Hit");
             GameObject target = hit.transform.gameObject;
-            if (target != null && target.tag == "Splurt") {
-                Destroy(target);
-            }
+
+            CapsuleCollider beam = this.GetComponentInChildren<CapsuleCollider>();
+            beam.height = hit.distance/2;
+            beam.radius = beamThickness;
+            beam.transform.position = new Vector3(0, hit.distance/2, 0);
+            
         }
         // else {
         //     Debug.DrawRay(origin, direction * maxDistance, Color.blue);
