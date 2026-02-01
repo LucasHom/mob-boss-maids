@@ -11,7 +11,6 @@ public class TimeScript : MonoBehaviour
     private float totalSeconds;
     private float secondTimer;
     private bool isRunning;
-    public bool timerOver;
     // public static float fiveMinuteLength = 3.125f; // 3.125 means that it's a five minute day
 
     // Start is called before the first frame update
@@ -21,7 +20,6 @@ public class TimeScript : MonoBehaviour
         totalSeconds = 5.0f;
         secondTimer = 0.0f;
         isRunning = true;
-        timerOver = false;
     }
 
     // Update is called once per frame
@@ -42,7 +40,7 @@ public class TimeScript : MonoBehaviour
         if (Mathf.Round(totalSeconds) == 0)
         {
             isRunning = false;
-            timerOver = true;
+            GameManager.Instance.isTimerOver = true;
         }
 
 
