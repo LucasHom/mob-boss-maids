@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 
@@ -12,9 +13,12 @@ public class GameManager : MonoBehaviour
 
     //timer 
     public bool isTimerOver;
+    
+    // scene management
+    public bool SceneLoadCondition = false;
+    public string SceneName;
 
     // Events
-    // Called when the game is over
     public event EventHandler OnGameOver;
     public event EventHandler InitializeSplurt;
 
@@ -34,7 +38,20 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(WaitThenSplurt());
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "MainScene")
+        {
+            StartCoroutine(WaitThenSplurt());
+        }
+    }
+
+    private void Update()
+    {
+        // make sure to both set the condition as true, and name the specific scene.
+        if (SceneLoadCondition)
+        {
+            SceneManager.LoadScene(SceneName);
+        }
     }
 
     private IEnumerator WaitThenSplurt()
