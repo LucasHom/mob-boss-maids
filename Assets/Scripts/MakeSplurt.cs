@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,10 +19,11 @@ public class MakeSplurt : MonoBehaviour
     }
 
     // private void InitializeSplurt_InitialSplurt(object s, EventArgs e)
-    private void InitializeSplurt_InitialSplurt()
+    private void InitializeSplurt_InitialSplurt(object sender, EventArgs e)
     {
         beginSplurt();
     }
+
 
     // Update is called once per frame
     void Update()
