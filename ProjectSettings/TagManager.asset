@@ -28,6 +28,8 @@ TagManager:
   - QDSUITextInputField
   - SamplesInfoPanel
   - QDSUIToggleCheckboxRadio
+  - Splurt
+  - Clean
   layers:
   - Default
   - TransparentFX

@@ -34,8 +34,8 @@ public class MakeSplurt : MonoBehaviour
     }
 
 
-    public void beginSplurt(GameObject splurt = null, int count = default(int), Vector3 pos = default(Vector3), Vector2 sizeRange = default(Vector2), Vector3 launchMod = default(Vector3)) {
-        if (splurt == null) splurt = this.splurt;
+    public void beginSplurt(GameObject splurt = default(GameObject), int count = default(int), Vector3 pos = default(Vector3), Vector2 sizeRange = default(Vector2), Vector3 launchMod = default(Vector3)) {
+        if (splurt == default(GameObject)) splurt = this.splurt;
         if (count == default(int)) count = this.count;
         if (pos == default(Vector3)) pos = this.pos;
         if (sizeRange == default(Vector2)) sizeRange = this.sizeRange;

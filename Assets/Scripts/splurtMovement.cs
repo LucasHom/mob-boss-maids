@@ -26,6 +26,7 @@ public class splurtMovement : MonoBehaviour
     {
         if ((state == "WAIT") || (state == "INAIR")) transform.LookAt(camera.transform.position, -Vector3.up);
 
+
         // if ((Keyboard.current.spaceKey.isPressed) && (state == "WAIT")) {
         //     
 
@@ -53,5 +54,14 @@ public class splurtMovement : MonoBehaviour
         rb.useGravity = false;
 
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, collision.contacts[0].normal);
+
+    }
+
+    void OnTriggerStay(Collider other) 
+    {
+        if (other.gameObject.tag == "Clean") {
+            print("cleaned!");
+            Destroy(this.gameObject);
+        }
     }
 }
