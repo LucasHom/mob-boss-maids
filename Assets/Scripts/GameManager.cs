@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnGameOver;
     public event EventHandler InitializeSplurt;
 
-
     private void Awake()
     {
         // Singleton setup
@@ -34,9 +33,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        OnGameOver?.Invoke(this, EventArgs.Empty);
+        // StartCoroutine(WaitThenSplurt());
         InitializeSplurt?.Invoke(this, EventArgs.Empty);
     }
+
+    // private IEnumerator WaitThenSplurt()
+    // {
+    //     yield return new WaitForSeconds(1f);
+    // }
 
     public void GameOver()
     {

@@ -16,8 +16,7 @@ public class TimeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // totalSeconds = 2 * 60.0f; // 1 minute timer
-        totalSeconds = 5.0f;
+        totalSeconds = 2 * 60.0f; // 1 minute timer
         secondTimer = 0.0f;
         isRunning = true;
     }

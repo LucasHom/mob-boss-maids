@@ -13,15 +13,17 @@ public class MakeSplurt : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         GameManager.Instance.InitializeSplurt += InitializeSplurt_InitialSplurt;
     }
 
-    // private void InitializeSplurt_InitialSplurt(object s, EventArgs e)
     private void InitializeSplurt_InitialSplurt(object sender, EventArgs e)
     {
-        beginSplurt();
+        // call beginSplurt for each splurt point that you want to start around the map.
+        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, 0.0f), default(Vector2), default(Vector3));
+        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, -3.0f), default(Vector2), default(Vector3));
+        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, -1.5f), default(Vector2), default(Vector3));
     }
 
 
