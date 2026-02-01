@@ -9,9 +9,13 @@ public class GameManager : MonoBehaviour
     // Game state
     public bool isGameOver;
 
+    //timer 
+    public bool isTimerOver;
+
     // Events
     // Called when the game is over
-    public event Action OnGameOver;
+    public event EventHandler OnGameOver;
+    public event EventHandler InitializeSplurt;
 
 
     private void Awake()
@@ -27,6 +31,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+    private void Start()
+    {
+        OnGameOver?.Invoke(this, EventArgs.Empty);
+        InitializeSplurt?.Invoke(this, EventArgs.Empty);
+    }
 
     public void GameOver()
     {
