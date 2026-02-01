@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1208999157757599471}
   - component: {fileID: 2960862451034204030}
   - component: {fileID: 1662724800919768910}
+  - component: {fileID: 3496050309849504665}
   m_Layer: 4
   m_Name: Splash
   m_TagString: Clean
@@ -111,8 +112,21 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3496050309849504665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861729945564234098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928b4bd557497ff41aa7130bf67af959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  ps: {fileID: 5259011660158000863}
 --- !u!1 &1138679057175196737
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +997,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 150
+      scalar: 300
       minScalar: 10
       maxCurve:
         serializedVersion: 2

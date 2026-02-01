@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,8 +21,7 @@ public class splurtMovement : MonoBehaviour
         MakeSplurt.splurtCount++;
         launchSplurt();
 
-        
-        
+        //StartCoroutine(SafeGaurdDestroy());
     }
 
     // Update is called once per frame
@@ -29,12 +29,11 @@ public class splurtMovement : MonoBehaviour
     {
         if ((state == "WAIT") || (state == "INAIR")) transform.LookAt(camera.transform.position, -Vector3.up);
 
-
-        // if ((Keyboard.current.spaceKey.isPressed) && (state == "WAIT")) {
-        //     
-
-        // }
-
+        if (transform.position.y < -10f)
+        {
+            Debug.Log("Destroyed safeguard splurt at y<0");
+            Destroy(gameObject);
+        }
     }
 
     public void launchSplurt()
@@ -45,8 +44,12 @@ public class splurtMovement : MonoBehaviour
 
         this.transform.localScale = Mathf.Pow(Random.Range(sizeRange[0], sizeRange[1]), 2) * new Vector3(1, 1, 1);
         rb.linearVelocity = Random.insideUnitSphere;
-        rb.linearVelocity = new Vector3(launchMod[0]*rb.linearVelocity.x, launchMod[1]*Mathf.Abs(rb.linearVelocity.y), launchMod[2]*rb.linearVelocity.z);
+        rb.linearVelocity = new Vector3(launchMod[0] * rb.linearVelocity.x, launchMod[1] * Mathf.Abs(rb.linearVelocity.y), launchMod[2] * rb.linearVelocity.z);
+
+
+
     }
+
 
     void OnCollisionEnter(Collision collision) 
     {
@@ -66,7 +69,6 @@ public class splurtMovement : MonoBehaviour
 
     void OnTriggerStay(Collider other) 
     {
-        Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Clean") {
             //print("cleaned!");
             MakeSplurt.splurtCount--;
