@@ -48,12 +48,35 @@ public class splurtMovement : MonoBehaviour
     void OnCollisionEnter(Collision collision) 
     {
         state = "LANDED";
-        print("landed!");
-        rb.linearVelocity = new Vector3(0, 0, 0);
-        rb.angularVelocity = new Vector3(0, 0, 0);
-        rb.useGravity = false;
+        //print("landed!");
+
 
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, collision.contacts[0].normal);
+
+        //if (collision.gameObject.tag == "interactable")
+        //{
+        //    // Instead of parenting:
+        //    FixedJoint joint = gameObject.AddComponent<FixedJoint>();
+        //    joint.connectedBody = collision.rigidbody; // attach to interactable
+        //    joint.breakForce = Mathf.Infinity;
+        //    joint.breakTorque = Mathf.Infinity;
+        //}
+
+        if (collision.gameObject.tag == "interactable")
+        {
+            transform.SetParent(collision.transform, true);
+        }
+        else
+        {
+            rb.linearVelocity = new Vector3(0, 0, 0);
+            rb.angularVelocity = new Vector3(0, 0, 0);
+            rb.useGravity = false;
+        }
+
+        
+
+
+
 
     }
 
