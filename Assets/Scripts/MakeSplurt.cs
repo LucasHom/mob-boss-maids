@@ -24,12 +24,14 @@ public class MakeSplurt : MonoBehaviour
 
     }
 
-    private void InitializeSplurt_InitialSplurt(object sender, EventArgs e)
+    private void InitializeSplurt_InitialSplurt(object sender, GameManager.InitializeSplurtEventArgs e)
     {
+        Vector3 pos = e.Position;
         // call beginSplurt for each splurt point that you want to start around the map.
-        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, 0.0f), default(Vector2), default(Vector3));
-        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, -3.0f), default(Vector2), default(Vector3));
-        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, -1.5f), default(Vector2), default(Vector3));
+        for (int i = 0; i < e.Times; i++)
+        {
+            beginSplurt(default(GameObject), 200, pos, default(Vector2), default(Vector3));
+        }
     }
 
 

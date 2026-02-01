@@ -22,7 +22,18 @@ public class GameManager : MonoBehaviour
     // Events
     public event EventHandler OnGameOver;
     public event EventHandler OnGameWin;
-    public event EventHandler InitializeSplurt;
+    public event EventHandler<InitializeSplurtEventArgs> InitializeSplurt;
+    public class InitializeSplurtEventArgs : EventArgs
+    {
+        public Vector3 Position { get; private set; }
+        public int Times { get; private set; }
+
+        public InitializeSplurtEventArgs(Vector3 position, int times)
+        {
+            Position = position;
+            Times = times;
+        }
+    }
 
     private void Awake()
     {
@@ -43,8 +54,16 @@ public class GameManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "MainScene")
         {
-            StartCoroutine(WaitThenSplurt());
+            StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 3));
         }
+        if (sceneName == "Kitchen")
+        {
+            StartCoroutine(WaitThenSplurt(Vector3.zero, 5));
+        }
+        //if (sceneName == "MainScene")
+        //{
+        //    StartCoroutine(WaitThenSplurt(Vector3.zero, 3));
+        //}
     }
 
     private void Update()
@@ -57,10 +76,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private IEnumerator WaitThenSplurt()
+    private IEnumerator WaitThenSplurt(Vector3 position, int times)
     {
         yield return null;
-        InitializeSplurt?.Invoke(this, EventArgs.Empty);
+        InitializeSplurt?.Invoke(this, new InitializeSplurtEventArgs(position, times));
     }
 
     public void GameOver()

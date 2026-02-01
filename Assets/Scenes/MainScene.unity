@@ -2107,6 +2107,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeScript
   timeText: {fileID: 1278739186}
+  totalSeconds: 0
+--- !u!1001 &750756309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.418
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665754309288492410, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601521544311133345, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
+      propertyPath: m_Name
+      value: Splurt
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f730bd8a545e81d47897bb82a4ed3a6d, type: 3}
 --- !u!1001 &818509262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5041,6 +5099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   isGameOver: 0
+  isGameWin: 0
   isTimerOver: 0
   SceneLoadCondition: 0
   SceneName: 
@@ -5803,3 +5862,4 @@ SceneRoots:
   - {fileID: 1567525639}
   - {fileID: 570683216}
   - {fileID: 1396245286}
+  - {fileID: 750756309}
