@@ -30,6 +30,7 @@ TagManager:
   - QDSUIToggleCheckboxRadio
   - Splurt
   - Clean
+  - interactable
   layers:
   - Default
   - TransparentFX

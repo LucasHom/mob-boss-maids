@@ -24,20 +24,29 @@ public class PowerwasherCleaning : MonoBehaviour
     public void powerwasherOn(Vector3 origin, Vector3 direction) 
     {
         RaycastHit hit;
-        if (Physics.Raycast(origin, direction, out hit, maxDistance)) {
+        if (Physics.Raycast(origin, direction, out hit, maxDistance, LayerMask.GetMask("Default", "Slurt"))) {
             Debug.DrawRay(origin, direction * hit.distance, Color.red);
             // GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             // sphere.transform.position = hit.point;
             // print("Did Hit");
             GameObject target = hit.transform.gameObject;
-            if (target != null && target.tag == "Splurt") {
-                Destroy(target);
+
+            CapsuleCollider[] beams = this.GetComponentsInChildren<CapsuleCollider>();
+
+
+            foreach (CapsuleCollider beam in beams) 
+            {
+                if (beam.gameObject == this.gameObject) continue;
+                beam.height = hit.distance*2;
+                beam.transform.localPosition = new Vector3(0, hit.distance - 1.25f, 0);
+                beam.radius = beamThickness;
+                //beam.transform.position = new Vector3(0, hit.distance/2, 0);
             }
         }
-        // else {
-        //     Debug.DrawRay(origin, direction * maxDistance, Color.blue);
-        //     // print("Did not Hit");
-        // }
+        else {
+            Debug.DrawRay(origin, direction * maxDistance, Color.blue);
+            // print("Did not Hit");
+        }
     }
 
 }
