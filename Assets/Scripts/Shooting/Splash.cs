@@ -28,6 +28,7 @@ public class Splash : MonoBehaviour
         {
             if (hit.gameObject.CompareTag("Splurt"))
             {
+                MakeSplurt.splurtCount--;
                 Destroy(hit.gameObject);
             }
         }
