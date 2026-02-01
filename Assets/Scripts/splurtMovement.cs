@@ -3,18 +3,21 @@ using UnityEngine.InputSystem;
 
 public class splurtMovement : MonoBehaviour
 {
+
     public GameObject camera;
     public Vector2 sizeRange = new Vector2(.05f, .3f);
     public Vector3 launchMod = new Vector3(3, 7, 3);
 
     private string state = "INAIR"; 
     private Rigidbody rb; 
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         rb.useGravity = false;
+        MakeSplurt.splurtCount++;
         launchSplurt();
 
         
@@ -38,7 +41,7 @@ public class splurtMovement : MonoBehaviour
     {
         state = "INAIR";
         rb.useGravity = true;
-        print("launch!");
+        //print("launch!");
 
         this.transform.localScale = Mathf.Pow(Random.Range(sizeRange[0], sizeRange[1]), 2) * new Vector3(1, 1, 1);
         rb.linearVelocity = Random.insideUnitSphere;
@@ -49,42 +52,21 @@ public class splurtMovement : MonoBehaviour
     {
         state = "LANDED";
         //print("landed!");
-
+        rb.linearVelocity = new Vector3(0, 0, 0);
+        rb.angularVelocity = new Vector3(0, 0, 0);
+        rb.useGravity = false;
 
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, collision.contacts[0].normal);
-
-        //if (collision.gameObject.tag == "interactable")
-        //{
-        //    // Instead of parenting:
-        //    FixedJoint joint = gameObject.AddComponent<FixedJoint>();
-        //    joint.connectedBody = collision.rigidbody; // attach to interactable
-        //    joint.breakForce = Mathf.Infinity;
-        //    joint.breakTorque = Mathf.Infinity;
-        //}
-
-        if (collision.gameObject.tag == "interactable")
-        {
-            transform.SetParent(collision.transform, true);
-        }
-        else
-        {
-            rb.linearVelocity = new Vector3(0, 0, 0);
-            rb.angularVelocity = new Vector3(0, 0, 0);
-            rb.useGravity = false;
-        }
-
-        
-
-
-
 
     }
 
     void OnTriggerStay(Collider other) 
     {
         if (other.gameObject.tag == "Clean") {
-            print("cleaned!");
+            //print("cleaned!");
+            MakeSplurt.splurtCount--;
             Destroy(this.gameObject);
+    
         }
     }
 }

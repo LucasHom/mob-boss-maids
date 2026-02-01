@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 public class MakeSplurt : MonoBehaviour
 {
 
-    
+    public static int splurtCount = 0;
+
+
     public GameObject splurt;
     public int count = 1000;
     public Vector3 pos = new Vector3(0, .1f, 0);
@@ -32,6 +34,7 @@ public class MakeSplurt : MonoBehaviour
         if (Keyboard.current.spaceKey.wasPressedThisFrame) {
             beginSplurt();
         }   
+        print("Current Splurt Count: " + splurtCount);
     }
 
 
