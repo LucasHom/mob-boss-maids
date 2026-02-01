@@ -9,13 +9,13 @@ public class splurtMovement : MonoBehaviour
     public Vector3 launchMod = new Vector3(3, 7, 3);
 
     private string state = "INAIR"; 
-    private Rigidbody rb; 
-    
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Collider sphereCol;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
         rb.useGravity = false;
         MakeSplurt.splurtCount++;
         launchSplurt();
@@ -59,7 +59,7 @@ public class splurtMovement : MonoBehaviour
 
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, collision.contacts[0].normal);
         rb.isKinematic = true;
-
+        sphereCol.enabled = false;
 
         transform.SetParent(collision.transform, true);
     }

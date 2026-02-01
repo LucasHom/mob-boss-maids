@@ -169,6 +169,8 @@ MonoBehaviour:
   camera: {fileID: 0}
   sizeRange: {x: 0.02, y: 0.2}
   launchMod: {x: 3, y: 3, z: 3}
+  rb: {fileID: 6892693628949555935}
+  sphereCol: {fileID: 8535068947743886949}
 --- !u!135 &8535068947743886949
 SphereCollider:
   m_ObjectHideFlags: 0
