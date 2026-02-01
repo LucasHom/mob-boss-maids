@@ -9,13 +9,18 @@ public class MakeSplurt : MonoBehaviour
     public Vector3 pos = new Vector3(0, .1f, 0);
     public Vector2 sizeRange = new Vector2(.05f, .3f);
     public Vector3 launchMod = new Vector3(3, 7, 3);
-    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        GameManager.Instance.InitializeSplurt += InitializeSplurt_InitialSplurt;
+    }
+
+    // private void InitializeSplurt_InitialSplurt(object s, EventArgs e)
+    private void InitializeSplurt_InitialSplurt()
+    {
+        beginSplurt();
     }
 
     // Update is called once per frame

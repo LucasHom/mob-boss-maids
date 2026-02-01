@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     // Events
     // Called when the game is over
     public event EventHandler OnGameOver;
+    public event EventHandler InitializeSplurt;
 
 
     private void Awake()
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         OnGameOver?.Invoke(this, EventArgs.Empty);
+        InitializeSplurt?.Invoke(this, EventArgs.Empty);
     }
 
     public void GameOver()
