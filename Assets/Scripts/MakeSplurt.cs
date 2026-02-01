@@ -19,6 +19,8 @@ public class MakeSplurt : MonoBehaviour
     void Start()
     {
         GameManager.Instance.InitializeSplurt += InitializeSplurt_InitialSplurt;
+        splurtCount = 0;
+
     }
 
     private void InitializeSplurt_InitialSplurt(object sender, EventArgs e)
@@ -36,7 +38,7 @@ public class MakeSplurt : MonoBehaviour
         if (Keyboard.current.spaceKey.wasPressedThisFrame) {
             beginSplurt();
         }   
-        print("Current Splurt Count: " + splurtCount);
+        //print("Current Splurt Count: " + splurtCount);
     }
 
 

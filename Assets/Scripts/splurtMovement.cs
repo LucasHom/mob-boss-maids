@@ -66,10 +66,11 @@ public class splurtMovement : MonoBehaviour
 
     void OnTriggerStay(Collider other) 
     {
+        Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Clean") {
             //print("cleaned!");
             MakeSplurt.splurtCount--;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
     
         }
     }
