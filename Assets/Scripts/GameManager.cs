@@ -54,11 +54,11 @@ public class GameManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "MainScene")
         {
-            StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 3));
+            StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 5));
         }
         if (sceneName == "Kitchen")
         {
-            StartCoroutine(WaitThenSplurt(Vector3.zero, 5));
+            StartCoroutine(WaitThenSplurt(Vector3.zero, 7));
         }
         //if (sceneName == "MainScene")
         //{
