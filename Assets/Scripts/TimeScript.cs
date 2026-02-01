@@ -8,9 +8,10 @@ using UnityEngine.Events;
 public class TimeScript : MonoBehaviour
 {
     public TMP_Text timeText;
-    private float totalSeconds;
+    [SerializeField] private float totalSeconds;
     private float secondTimer;
     private bool isRunning;
+
     // public static float fiveMinuteLength = 3.125f; // 3.125 means that it's a five minute day
 
     // Start is called before the first frame update

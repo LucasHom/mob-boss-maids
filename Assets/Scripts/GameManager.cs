@@ -79,8 +79,12 @@ public class GameManager : MonoBehaviour
         isGameWin = true;
         OnGameWin?.Invoke(this, EventArgs.Empty);
         Debug.Log("you win!");
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name != "StartScene")
+        {
+            LoadNextScene();
+        }
 
-        LoadNextScene();
     }
 
     private void LoadNextScene()
