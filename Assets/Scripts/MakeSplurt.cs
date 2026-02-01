@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class MakeSplurt : MonoBehaviour
 {
 
+    
     public GameObject splurt;
     public int count = 1000;
     public Vector3 pos = new Vector3(0, .1f, 0);
