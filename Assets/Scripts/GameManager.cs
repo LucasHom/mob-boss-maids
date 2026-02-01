@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,14 +34,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // StartCoroutine(WaitThenSplurt());
-        InitializeSplurt?.Invoke(this, EventArgs.Empty);
+        StartCoroutine(WaitThenSplurt());
     }
 
-    // private IEnumerator WaitThenSplurt()
-    // {
-    //     yield return new WaitForSeconds(1f);
-    // }
+    private IEnumerator WaitThenSplurt()
+    {
+        yield return null;
+        InitializeSplurt?.Invoke(this, EventArgs.Empty);
+    }
 
     public void GameOver()
     {

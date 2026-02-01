@@ -16,7 +16,7 @@ public class MakeSplurt : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         GameManager.Instance.InitializeSplurt += InitializeSplurt_InitialSplurt;
     }
