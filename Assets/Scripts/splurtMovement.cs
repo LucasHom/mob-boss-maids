@@ -50,6 +50,7 @@ public class splurtMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) 
     {
+        if (state != "INAIR") return;
         state = "LANDED";
         //print("landed!");
         rb.linearVelocity = new Vector3(0, 0, 0);
@@ -57,7 +58,10 @@ public class splurtMovement : MonoBehaviour
         rb.useGravity = false;
 
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, collision.contacts[0].normal);
+        rb.isKinematic = true;
 
+
+        transform.SetParent(collision.transform, true);
     }
 
     void OnTriggerStay(Collider other) 
