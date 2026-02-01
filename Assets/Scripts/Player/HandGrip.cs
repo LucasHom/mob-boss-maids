@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class HandGrip : MonoBehaviour
 {
@@ -21,6 +23,8 @@ public class HandGrip : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float smoothSpeed = 10f;
 
+    [SerializeField] private TextMeshPro splurtIndicator;
+
     private bool isGrippedLeft;
     private bool isGrippedRight;
 
@@ -34,5 +38,9 @@ public class HandGrip : MonoBehaviour
 
         leftHand.localPosition = Vector3.Lerp(leftHand.localPosition, target1, smoothSpeed * Time.deltaTime);
         rightHand.localPosition = Vector3.Lerp(rightHand.localPosition, target2, smoothSpeed * Time.deltaTime);
+
+        //splurtIndicator.text = $"{Mathf.RoundToInt((float)MakeSplurt.splurtCount / MakeSplurt.splurtsCreated * 100f)} %";
+        splurtIndicator.text = $"{MakeSplurt.splurtCount}";
+
     }
 }

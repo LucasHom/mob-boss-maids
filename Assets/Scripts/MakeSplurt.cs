@@ -6,7 +6,7 @@ public class MakeSplurt : MonoBehaviour
 {
 
     public static int splurtCount = 0;
-
+    public static int splurtsCreated = 0;
 
     public GameObject splurt;
     public int count = 1000;
@@ -20,6 +20,7 @@ public class MakeSplurt : MonoBehaviour
     {
         GameManager.Instance.InitializeSplurt += InitializeSplurt_InitialSplurt;
         splurtCount = 0;
+        splurtsCreated = 0;
 
     }
 
