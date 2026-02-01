@@ -6,7 +6,7 @@ public class MakeSplurt : MonoBehaviour
 {
 
     public static int splurtCount = 0;
-    public static int splurtsCreated = 0;
+
 
     public GameObject splurt;
     public int count = 1000;
@@ -19,17 +19,12 @@ public class MakeSplurt : MonoBehaviour
     void Start()
     {
         GameManager.Instance.InitializeSplurt += InitializeSplurt_InitialSplurt;
-        splurtCount = 0;
-        splurtsCreated = 0;
-
     }
 
+    // private void InitializeSplurt_InitialSplurt(object s, EventArgs e)
     private void InitializeSplurt_InitialSplurt(object sender, EventArgs e)
     {
-        // call beginSplurt for each splurt point that you want to start around the map.
-        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, 0.0f), default(Vector2), default(Vector3));
-        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, -3.0f), default(Vector2), default(Vector3));
-        beginSplurt(default(GameObject), 200, new Vector3(0.0f, 1.0f, -1.5f), default(Vector2), default(Vector3));
+        beginSplurt();
     }
 
 
@@ -38,8 +33,8 @@ public class MakeSplurt : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame) {
             beginSplurt();
-        }
-        //print("Current Splurt Count: " + splurtCount);
+        }   
+        print("Current Splurt Count: " + splurtCount);
     }
 
 
