@@ -18,7 +18,7 @@ public class Pellet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Pellet collided with " + collision.gameObject.name);
+        //Debug.Log("Pellet collided with " + collision.gameObject.name);
         Instantiate(splashPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

@@ -37,7 +37,7 @@ public class MakeSplurt : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame) {
             beginSplurt();
-        }   
+        }
         //print("Current Splurt Count: " + splurtCount);
     }
 

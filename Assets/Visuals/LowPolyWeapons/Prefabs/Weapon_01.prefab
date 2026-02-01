@@ -5268,7 +5268,7 @@ MonoBehaviour:
   firePoint: {fileID: 7052029496902371994}
   bulletSpeed: 20
   bulletLifetime: 5
-  clip: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  clip: {fileID: 8300000, guid: 713da89a4cf9e01439fb0b3b0ff9e3a0, type: 3}
   muzzleFlash: {fileID: 7008432231564906582}
   visualsObject: {fileID: 2646882135799559647}
   recoilForce: -0.08

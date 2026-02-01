@@ -32,6 +32,7 @@ public class splurtMovement : MonoBehaviour
         if (transform.position.y < -10f)
         {
             Debug.Log("Destroyed safeguard splurt at y<0");
+            MakeSplurt.splurtCount--;
             Destroy(gameObject);
         }
     }
