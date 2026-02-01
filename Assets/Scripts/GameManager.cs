@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     // Game state
     public bool isGameOver;
+    public bool isGameWin;
 
     //timer 
     public bool isTimerOver;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     // Events
     public event EventHandler OnGameOver;
+    public event EventHandler OnGameWin;
     public event EventHandler InitializeSplurt;
 
     private void Awake()
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneName);
         }
+
     }
 
     private IEnumerator WaitThenSplurt()
@@ -62,6 +65,27 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("hi");
+        if (isGameOver) return;
+
+        isGameOver = true;
+        OnGameOver?.Invoke(this, EventArgs.Empty);
+        Debug.Log("game over!");
+    }
+
+    public void Win()
+    {
+        if (isGameWin) return;
+
+        isGameWin = true;
+        OnGameWin?.Invoke(this, EventArgs.Empty);
+        Debug.Log("you win!");
+
+        LoadNextScene();
+    }
+
+    private void LoadNextScene()
+    {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentIndex + 1);
     }
 }

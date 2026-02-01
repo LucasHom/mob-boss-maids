@@ -41,8 +41,6 @@ public class HandGrip : MonoBehaviour
 
         //splurtIndicator.text = $"{Mathf.RoundToInt((float)MakeSplurt.splurtCount / MakeSplurt.splurtsCreated * 100f)} %";
         splurtIndicator.text = $"{MakeSplurt.splurtCount}";
-        Debug.Log(MakeSplurt.splurtCount);
-
 
     }
 }
