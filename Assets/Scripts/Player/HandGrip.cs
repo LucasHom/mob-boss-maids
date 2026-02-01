@@ -40,7 +40,11 @@ public class HandGrip : MonoBehaviour
         rightHand.localPosition = Vector3.Lerp(rightHand.localPosition, target2, smoothSpeed * Time.deltaTime);
 
         //splurtIndicator.text = $"{Mathf.RoundToInt((float)MakeSplurt.splurtCount / MakeSplurt.splurtsCreated * 100f)} %";
-        splurtIndicator.text = $"{MakeSplurt.splurtCount}";
+        if (splurtIndicator != null)
+        {
+            splurtIndicator.text = $"{MakeSplurt.splurtCount}";
+        }
+
 
     }
 }

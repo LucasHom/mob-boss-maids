@@ -7,12 +7,20 @@ public class Splash : MonoBehaviour
     [SerializeField] private Transform visualTransform;
     [SerializeField] private MeshRenderer visualRenderer;
 
+    private float lotsOfSplurts;
+
     private void Awake()
     {
         transform.localScale = Vector3.one * 0.3f;
 
         DoSplashHit();
         StartCoroutine(Grow());
+    }
+
+    private void Start()
+    {
+        lotsOfSplurts = MakeSplurt.splurtCount;
+        Debug.Log($"Need to destroy: {lotsOfSplurts * .01}");
     }
 
     private void DoSplashHit()
@@ -29,7 +37,7 @@ public class Splash : MonoBehaviour
             if (hit.gameObject.CompareTag("Splurt"))
             {
                 MakeSplurt.splurtCount--;
-                if (MakeSplurt.splurtCount < 5)
+                if (MakeSplurt.splurtCount < lotsOfSplurts * .01)
                 {
                     GameManager.Instance.Win();
                 }

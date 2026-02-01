@@ -22,7 +22,18 @@ public class GameManager : MonoBehaviour
     // Events
     public event EventHandler OnGameOver;
     public event EventHandler OnGameWin;
-    public event EventHandler InitializeSplurt;
+    public event EventHandler<InitializeSplurtEventArgs> InitializeSplurt;
+    public class InitializeSplurtEventArgs : EventArgs
+    {
+        public Vector3 Position { get; private set; }
+        public int Times { get; private set; }
+
+        public InitializeSplurtEventArgs(Vector3 position, int times)
+        {
+            Position = position;
+            Times = times;
+        }
+    }
 
     private void Awake()
     {
@@ -40,11 +51,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        MakeSplurt.splurtCount = 0;
+
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "MainScene")
         {
-            StartCoroutine(WaitThenSplurt());
+            StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 5));
         }
+        if (sceneName == "Kitchen")
+        {
+            StartCoroutine(WaitThenSplurt(new Vector3(0.9f, 0.9f, -2.5f), 7));
+        }
+        //if (sceneName == "MainScene")
+        //{
+        //    StartCoroutine(WaitThenSplurt(Vector3.zero, 3));
+        //}
     }
 
     private void Update()
@@ -57,10 +78,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private IEnumerator WaitThenSplurt()
+    private IEnumerator WaitThenSplurt(Vector3 position, int times)
     {
         yield return null;
-        InitializeSplurt?.Invoke(this, EventArgs.Empty);
+        InitializeSplurt?.Invoke(this, new InitializeSplurtEventArgs(position, times));
     }
 
     public void GameOver()
@@ -79,8 +100,12 @@ public class GameManager : MonoBehaviour
         isGameWin = true;
         OnGameWin?.Invoke(this, EventArgs.Empty);
         Debug.Log("you win!");
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name != "StartScene")
+        {
+            LoadNextScene();
+        }
 
-        LoadNextScene();
     }
 
     private void LoadNextScene()
