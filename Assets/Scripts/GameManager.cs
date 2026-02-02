@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        MakeSplurt.splurtCount = 0;
+
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "MainScene")
         {
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
         }
         if (sceneName == "Kitchen")
         {
-            StartCoroutine(WaitThenSplurt(Vector3.zero, 7));
+            StartCoroutine(WaitThenSplurt(new Vector3(0.9f, 0.9f, -2.5f), 7));
         }
         //if (sceneName == "MainScene")
         //{

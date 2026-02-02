@@ -7,10 +7,14 @@ public class Splash : MonoBehaviour
     [SerializeField] private Transform visualTransform;
     [SerializeField] private MeshRenderer visualRenderer;
 
+<<<<<<< HEAD
     [Header("Audio")]
     public AudioClip clip;
     private AudioSource source;
     private bool playingSound = false;
+=======
+    private float lotsOfSplurts;
+>>>>>>> 4c8c2694485d3e150b0640a6d654e46e9f6437f6
 
     private void Awake()
     {
@@ -27,6 +31,12 @@ public class Splash : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        lotsOfSplurts = MakeSplurt.splurtCount;
+        Debug.Log($"Need to destroy: {lotsOfSplurts * .01}");
+    }
+
     private void DoSplashHit()
     {
         float radius = 0.3f;
@@ -41,7 +51,7 @@ public class Splash : MonoBehaviour
             if (hit.gameObject.CompareTag("Splurt"))
             {
                 MakeSplurt.splurtCount--;
-                if (MakeSplurt.splurtCount < 5)
+                if (MakeSplurt.splurtCount < lotsOfSplurts * .01)
                 {
                     GameManager.Instance.Win();
                 }
