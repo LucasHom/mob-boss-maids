@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using static Unity.VisualScripting.Member;
 
 public class GameManager : MonoBehaviour
 {
@@ -144,6 +145,8 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         OnGameOver?.Invoke(this, EventArgs.Empty);
         Debug.Log("game over!");
+
+        SceneManager.LoadScene("StartScene");
     }
 
     public void Win()
@@ -166,4 +169,5 @@ public class GameManager : MonoBehaviour
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex + 1);
     }
+
 }
