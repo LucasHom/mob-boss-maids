@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
-using System.Diagnostics;
+using static Unity.VisualScripting.Member;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,11 +19,6 @@ public class GameManager : MonoBehaviour
     // scene management
     public bool SceneLoadCondition = false;
     public string SceneName;
-
-    // audio
-    public AudioClip clip;
-    private AudioSource source;
-    private bool playingSound = false;
 
     // Events
     public event EventHandler OnGameOver;
@@ -68,29 +63,52 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        MakeSplurt.splurtCount = 0;
+        //MakeSplurt.splurtCount = 0;
 
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "MainScene")
+        //string sceneName = SceneManager.GetActiveScene().name;
+        //if (sceneName == "MainScene")
+        //{
+        //    StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 5));
+        //}
+        //if (sceneName == "Kitchen")
+        //{
+        //    StartCoroutine(WaitThenSplurt(new Vector3(0.9f, 0.9f, -2.5f), 7));
+        //}
+        ////if (sceneName == "MainScene")
+        ////{
+        ////    StartCoroutine(WaitThenSplurt(Vector3.zero, 3));
+        ////}
+        //PlayBackgroundMusic();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene loaded: " + scene.name);
+
+        // Equivalent of "Start" for each new scene
+        if (scene.name == "MainScene")
         {
             StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 5));
         }
-        if (sceneName == "Kitchen")
+        else if (scene.name == "Kitchen")
         {
             StartCoroutine(WaitThenSplurt(new Vector3(0.9f, 0.9f, -2.5f), 7));
         }
-        //if (sceneName == "MainScene")
-        //{
-        //    StartCoroutine(WaitThenSplurt(Vector3.zero, 3));
-        //}
 
-        if (source == null)
-        {
-            source = gameObject.AddComponent<AudioSource>();
-        }
-
-        PlayBackgroundMusic();
+        PlayBackgroundMusic(); // optional: continue music if needed
     }
+
+
 
     public void PlayBackgroundMusic()
     {
@@ -126,14 +144,9 @@ public class GameManager : MonoBehaviour
 
         isGameOver = true;
         OnGameOver?.Invoke(this, EventArgs.Empty);
-        // Debug.Log("game over!");
+        Debug.Log("game over!");
 
-        if (clip != null && source != null && !playingSound)
-        {
-            source.PlayOneShot(clip);
-            playingSound = true;
-            StartCoroutine(WaitForSoundEnd());
-        }
+        SceneManager.LoadScene("StartScene");
     }
 
     public void Win()
@@ -142,8 +155,8 @@ public class GameManager : MonoBehaviour
 
         isGameWin = true;
         OnGameWin?.Invoke(this, EventArgs.Empty);
-        // Debug.Log("you win!");
-        // Debug.Log(SceneManager.GetActiveScene().name);
+        Debug.Log("you win!");
+        Debug.Log(SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name != "StartScene")
         {
             LoadNextScene();
@@ -157,9 +170,4 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentIndex + 1);
     }
 
-    private IEnumerator WaitForSoundEnd()
-    {
-        yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene("StartScene");
-    }
 }
