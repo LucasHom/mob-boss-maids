@@ -18,6 +18,10 @@ public class BodyChoppin : MonoBehaviour
     {
         MakeSplurt.splurtCount += 100;
         splurter = GameObject.Find("GameManager").GetComponent<MakeSplurt>();
+    
+        splurter.beginSplurt(default(GameObject), 50, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(2, 3, 2));
+            // print(this.transform.position + new Vector3(0, 1f, 0));
+
     }
 
     // Update is called once per frame
@@ -37,7 +41,7 @@ public class BodyChoppin : MonoBehaviour
             newSliced.GetComponent<BodyChoppin>().state = "CHOPPED";
 
             splurter.beginSplurt(default(GameObject), 10, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(2, 3, 2));
-            print(this.transform.position + new Vector3(0, 1f, 0));
+            //print(this.transform.position + new Vector3(0, 1f, 0));
 
             MakeSplurt.splurtCount -= 100;
 
@@ -51,7 +55,7 @@ public class BodyChoppin : MonoBehaviour
             Instantiate(legs, this.transform.position, this.transform.rotation);
             
             splurter.beginSplurt(default(GameObject), 15, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(3, 5, 3));
-            print(this.transform.position + new Vector3(0, 1f, 0));
+            //print(this.transform.position + new Vector3(0, 1f, 0));
 
             MakeSplurt.splurtCount -= 100;
 
