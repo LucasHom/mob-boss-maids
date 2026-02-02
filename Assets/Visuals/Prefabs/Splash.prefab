@@ -49,6 +49,7 @@ MonoBehaviour:
   ps: {fileID: 5259011660158000863}
   visualTransform: {fileID: 8966374668669964879}
   visualRenderer: {fileID: 2696779639432030094}
+  clip: {fileID: 8300000, guid: 4d2102cb1758bee6e8c6009e5971aa92, type: 3}
 --- !u!1 &1138679057175196737
 GameObject:
   m_ObjectHideFlags: 0
