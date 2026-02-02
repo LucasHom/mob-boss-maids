@@ -6592,7 +6592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8518324294302271954, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9645,6 +9645,7 @@ MonoBehaviour:
   isTimerOver: 0
   SceneLoadCondition: 0
   SceneName: 
+  clip: {fileID: 8300000, guid: d01363225795f870d8b9f3701c8c6272, type: 3}
 --- !u!114 &1855023736
 MonoBehaviour:
   m_ObjectHideFlags: 0

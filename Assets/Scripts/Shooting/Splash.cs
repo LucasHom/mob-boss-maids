@@ -7,14 +7,11 @@ public class Splash : MonoBehaviour
     [SerializeField] private Transform visualTransform;
     [SerializeField] private MeshRenderer visualRenderer;
 
-<<<<<<< HEAD
     [Header("Audio")]
     public AudioClip clip;
     private AudioSource source;
     private bool playingSound = false;
-=======
     private float lotsOfSplurts;
->>>>>>> 4c8c2694485d3e150b0640a6d654e46e9f6437f6
 
     private void Awake()
     {
