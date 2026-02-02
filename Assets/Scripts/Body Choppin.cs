@@ -13,11 +13,22 @@ public class BodyChoppin : MonoBehaviour
     private string state = "HEALTHY";
     private bool choppable = true;
 
+    // audio
+    public AudioClip ChopClip;
+    public AudioClip SplashClip;
+    private AudioSource source;
+    private bool playingSound = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MakeSplurt.splurtCount += 100;
         splurter = GameObject.Find("GameManager").GetComponent<MakeSplurt>();
+
+        if (source == null)
+        {
+            source = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -65,6 +76,19 @@ public class BodyChoppin : MonoBehaviour
         GameObject axe = GameObject.Find("Axe");
         if (collision.gameObject == axe && choppable) {
             chopBody();
+
+            if (ChopClip != null && source != null && !playingSound)
+            {
+                source.PlayOneShot(ChopClip);
+                source.PlayOneShot(SplashClip);
+                playingSound = true;
+            }
+
+            if (source == null)
+            {
+                playingSound = false;
+            }
+
             choppable = false;
         }
     }

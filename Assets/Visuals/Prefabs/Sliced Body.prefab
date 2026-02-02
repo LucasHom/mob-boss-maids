@@ -100,6 +100,8 @@ MonoBehaviour:
   torso: {fileID: 2329270161797236925, guid: 521b27e6d8f56614f8e57394aa6160ee, type: 3}
   legs: {fileID: 7793816882565034519, guid: 5821813269bf2994e8775df37a0e4029, type: 3}
   splurter: {fileID: 0}
+  ChopClip: {fileID: 8300000, guid: 82c25ebef92cc3fc5ae9b757ba92dc7b, type: 3}
+  SplashClip: {fileID: 8300000, guid: 617db85720bca8c508efba5ff2115fb2, type: 3}
 --- !u!65 &-5930591863483645866
 BoxCollider:
   m_ObjectHideFlags: 0
