@@ -48,7 +48,7 @@ public class Splash : MonoBehaviour
             if (hit.gameObject.CompareTag("Splurt"))
             {
                 MakeSplurt.splurtCount--;
-                if (MakeSplurt.splurtCount < lotsOfSplurts * .05)
+                if (MakeSplurt.splurtCount < lotsOfSplurts * .1)
                 {
                     GameManager.Instance.Win();
                 }

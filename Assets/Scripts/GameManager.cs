@@ -144,6 +144,8 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         OnGameOver?.Invoke(this, EventArgs.Empty);
         Debug.Log("game over!");
+
+        SceneManager.LoadScene("StartScene");
     }
 
     public void Win()
