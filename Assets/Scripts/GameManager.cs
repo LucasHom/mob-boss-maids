@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip bgMusicClip;
+    [SerializeField] private float bgMusicVolume = 0.5f;
+    private AudioSource audioSource;
+
     private void Awake()
     {
         // Singleton setup
@@ -52,6 +57,12 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = bgMusicClip;
+        audioSource.loop = true;
+        audioSource.volume = bgMusicVolume;
+        audioSource.playOnAwake = false;
     }
 
 
@@ -72,10 +83,25 @@ public class GameManager : MonoBehaviour
         //{
         //    StartCoroutine(WaitThenSplurt(Vector3.zero, 3));
         //}
+
         if (source == null)
         {
             source = gameObject.AddComponent<AudioSource>();
         }
+
+        PlayBackgroundMusic();
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        if (!audioSource.isPlaying)
+            audioSource.Play();
+    }
+
+    public void StopBackgroundMusic()
+    {
+        if (audioSource.isPlaying)
+            audioSource.Stop();
     }
 
     private void Update()

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1254974708691943362}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 1.92, y: 0.87, z: 2.38}
+  m_LocalPosition: {x: 0, y: 0.12, z: 0.40999997}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 6122635229202347897}
   - component: {fileID: 5021611684043999765}
   - component: {fileID: 3671464993997501533}
+  - component: {fileID: -5864770232644695330}
   m_Layer: 0
   m_Name: Torso
   m_TagString: Untagged
@@ -394,8 +395,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.92242527, y: 0.3521508, z: 0.92425346}
-  m_Center: {x: 1.9185433, y: 0.92352945, z: 2.598526}
+  m_Size: {x: 1.3045256, y: 0.33405572, z: 0.8751447}
+  m_Center: {x: 0.1233865, y: 0.1417447, z: 0.6020553}
+--- !u!114 &-5864770232644695330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329270161797236925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc8a5e83c11bb0479e4b9e1846a40f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BodyBagging
 --- !u!1 &3015041617701145096
 GameObject:
   m_ObjectHideFlags: 0
