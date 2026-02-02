@@ -11,7 +11,7 @@ public class Splash : MonoBehaviour
     public AudioClip clip;
     private AudioSource source;
     private bool playingSound = false;
-    private float lotsOfSplurts;
+
 
     private void Awake()
     {
@@ -30,8 +30,7 @@ public class Splash : MonoBehaviour
 
     private void Start()
     {
-        lotsOfSplurts = MakeSplurt.splurtCount;
-        Debug.Log($"Need to destroy: {lotsOfSplurts * .01}");
+
     }
 
     private void DoSplashHit()
@@ -39,8 +38,7 @@ public class Splash : MonoBehaviour
         float radius = 0.3f;
 
         Collider[] hits = Physics.OverlapSphere(
-            transform.position,
-            radius
+            transform.position, radius
         );
 
         foreach (Collider hit in hits)
@@ -48,7 +46,7 @@ public class Splash : MonoBehaviour
             if (hit.gameObject.CompareTag("Splurt"))
             {
                 MakeSplurt.splurtCount--;
-                if (MakeSplurt.splurtCount < lotsOfSplurts * .05)
+                if (MakeSplurt.splurtCount < 300f)
                 {
                     GameManager.Instance.Win();
                 }

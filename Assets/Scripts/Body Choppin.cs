@@ -13,22 +13,15 @@ public class BodyChoppin : MonoBehaviour
     private string state = "HEALTHY";
     private bool choppable = true;
 
-    // audio
-    public AudioClip ChopClip;
-    public AudioClip SplashClip;
-    private AudioSource source;
-    private bool playingSound = false;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MakeSplurt.splurtCount += 100;
         splurter = GameObject.Find("GameManager").GetComponent<MakeSplurt>();
+    
+        splurter.beginSplurt(default(GameObject), 50, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(2, 3, 2));
+            // print(this.transform.position + new Vector3(0, 1f, 0));
 
-        if (source == null)
-        {
-            source = gameObject.AddComponent<AudioSource>();
-        }
     }
 
     // Update is called once per frame
@@ -48,7 +41,7 @@ public class BodyChoppin : MonoBehaviour
             newSliced.GetComponent<BodyChoppin>().state = "CHOPPED";
 
             splurter.beginSplurt(default(GameObject), 10, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(2, 3, 2));
-            print(this.transform.position + new Vector3(0, 1f, 0));
+            //print(this.transform.position + new Vector3(0, 1f, 0));
 
             MakeSplurt.splurtCount -= 100;
 
@@ -62,7 +55,7 @@ public class BodyChoppin : MonoBehaviour
             Instantiate(legs, this.transform.position, this.transform.rotation);
             
             splurter.beginSplurt(default(GameObject), 15, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(3, 5, 3));
-            print(this.transform.position + new Vector3(0, 1f, 0));
+            //print(this.transform.position + new Vector3(0, 1f, 0));
 
             MakeSplurt.splurtCount -= 100;
 
@@ -76,19 +69,6 @@ public class BodyChoppin : MonoBehaviour
         GameObject axe = GameObject.Find("Axe");
         if (collision.gameObject == axe && choppable) {
             chopBody();
-
-            if (ChopClip != null && source != null && !playingSound)
-            {
-                source.PlayOneShot(ChopClip);
-                source.PlayOneShot(SplashClip);
-                playingSound = true;
-            }
-
-            if (source == null)
-            {
-                playingSound = false;
-            }
-
             choppable = false;
         }
     }
