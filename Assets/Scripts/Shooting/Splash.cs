@@ -7,7 +7,14 @@ public class Splash : MonoBehaviour
     [SerializeField] private Transform visualTransform;
     [SerializeField] private MeshRenderer visualRenderer;
 
+<<<<<<< HEAD
+    [Header("Audio")]
+    public AudioClip clip;
+    private AudioSource source;
+    private bool playingSound = false;
+=======
     private float lotsOfSplurts;
+>>>>>>> 4c8c2694485d3e150b0640a6d654e46e9f6437f6
 
     private void Awake()
     {
@@ -15,6 +22,13 @@ public class Splash : MonoBehaviour
 
         DoSplashHit();
         StartCoroutine(Grow());
+
+        source = GetComponent<AudioSource>();
+
+        if (source == null)
+        {
+            source = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     private void Start()
@@ -54,6 +68,17 @@ public class Splash : MonoBehaviour
         if (!ps.IsAlive(true))
         {
             Destroy(gameObject);
+        }
+
+        if (clip != null && source != null && !playingSound)
+        {
+            source.PlayOneShot(clip);
+            playingSound = true;
+        }
+
+        if (source == null)
+        {
+            playingSound = false;
         }
     }
 
