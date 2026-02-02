@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
         }
 
         PlayBackgroundMusic(); // optional: continue music if needed
+        isGameWin = false;
     }
 
 
