@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5930591863483645866}
   m_Layer: 0
   m_Name: Sliced Body
-  m_TagString: Untagged
+  m_TagString: interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.92242527, y: 0.3521508, z: 1.8379877}
-  m_Center: {x: 1.9185433, y: 0.92352945, z: 1.9469281}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!114 &3787895924652934200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   sliced: {fileID: 2791243823780541325}
   torso: {fileID: 2329270161797236925, guid: 521b27e6d8f56614f8e57394aa6160ee, type: 3}
   legs: {fileID: 7793816882565034519, guid: 5821813269bf2994e8775df37a0e4029, type: 3}
+  splurter: {fileID: 0}
 --- !u!65 &-5930591863483645866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.95, y: 0.5, z: 1.85}
-  m_Center: {x: 1.9185433, y: 0.92352945, z: 1.9469281}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!1001 &2373651909806107536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,15 +143,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 697d86b2521e3684dbf5ed47d0c292a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.93
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 697d86b2521e3684dbf5ed47d0c292a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.877
+      value: 0.116
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 697d86b2521e3684dbf5ed47d0c292a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2250001
+      value: -0.777
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 697d86b2521e3684dbf5ed47d0c292a0, type: 3}
       propertyPath: m_LocalRotation.w
