@@ -7389,7 +7389,7 @@ MonoBehaviour:
   sphereLeftGripPos: {x: 0.24, y: 0.2, z: -0.21}
   sphereRightGripPos: {x: -0.24, y: 0.2, z: -0.21}
   smoothSpeed: 45
-  splurtIndicator: {fileID: 0}
+  splurtIndicator: {fileID: 1656375923}
 --- !u!143 &1547485132
 CharacterController:
   m_ObjectHideFlags: 0

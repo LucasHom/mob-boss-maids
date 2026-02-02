@@ -62,23 +62,52 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        MakeSplurt.splurtCount = 0;
+        //MakeSplurt.splurtCount = 0;
 
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "MainScene")
+        //string sceneName = SceneManager.GetActiveScene().name;
+        //if (sceneName == "MainScene")
+        //{
+        //    StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 5));
+        //}
+        //if (sceneName == "Kitchen")
+        //{
+        //    StartCoroutine(WaitThenSplurt(new Vector3(0.9f, 0.9f, -2.5f), 7));
+        //}
+        ////if (sceneName == "MainScene")
+        ////{
+        ////    StartCoroutine(WaitThenSplurt(Vector3.zero, 3));
+        ////}
+        //PlayBackgroundMusic();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene loaded: " + scene.name);
+
+        // Equivalent of "Start" for each new scene
+        if (scene.name == "MainScene")
         {
             StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 5));
         }
-        if (sceneName == "Kitchen")
+        else if (scene.name == "Kitchen")
         {
             StartCoroutine(WaitThenSplurt(new Vector3(0.9f, 0.9f, -2.5f), 7));
         }
-        //if (sceneName == "MainScene")
-        //{
-        //    StartCoroutine(WaitThenSplurt(Vector3.zero, 3));
-        //}
-        PlayBackgroundMusic();
+
+        PlayBackgroundMusic(); // optional: continue music if needed
     }
+
+
 
     public void PlayBackgroundMusic()
     {
