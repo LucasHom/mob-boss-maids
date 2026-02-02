@@ -18,7 +18,6 @@ public class TimeScript : MonoBehaviour
     void Start()
     {
         //totalSeconds = 2 * 60.0f;
-        totalSeconds = 15.0f;
         secondTimer = 0.0f;
         isRunning = true;
     }

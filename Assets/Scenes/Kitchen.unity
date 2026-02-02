@@ -12603,6 +12603,8 @@ MonoBehaviour:
   isTimerOver: 0
   SceneLoadCondition: 0
   SceneName: 
+  bgMusicClip: {fileID: 8300000, guid: 90ed392677f840d47bfc1f4c8c826cf0, type: 3}
+  bgMusicVolume: 0.7
 --- !u!114 &1855023736
 MonoBehaviour:
   m_ObjectHideFlags: 0
