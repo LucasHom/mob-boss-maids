@@ -36,22 +36,25 @@ public class Splash : MonoBehaviour
     private void DoSplashHit()
     {
         float radius = 0.3f;
-
-        Collider[] hits = Physics.OverlapSphere(
-            transform.position, radius
-        );
+        Collider[] hits = Physics.OverlapSphere(transform.position, radius);
 
         foreach (Collider hit in hits)
         {
             if (hit.gameObject.CompareTag("Splurt"))
             {
-                MakeSplurt.splurtCount--;
-                if (MakeSplurt.splurtCount < 300f)
-                {
-                    GameManager.Instance.Win();
-                }
                 Destroy(hit.gameObject);
+                MakeSplurt.splurtCount--;
+
+                if (MakeSplurt.splurtCount < 0)
+                {
+                    MakeSplurt.splurtCount = 0;
+                }
             }
+        }
+
+        if (MakeSplurt.splurtCount < 1)
+        {
+            GameManager.Instance.Win();
         }
     }
 

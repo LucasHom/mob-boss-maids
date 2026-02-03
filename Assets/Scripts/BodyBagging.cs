@@ -5,7 +5,7 @@ public class BodyBagging : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        MakeSplurt.splurtCount += 100;
+        //MakeSplurt.splurtCount += 100;
     }
 
     // Update is called once per frame
@@ -18,7 +18,8 @@ public class BodyBagging : MonoBehaviour
     {
         GameObject bag = GameObject.Find("Trashbag");
         if (collision.gameObject == bag) {
-            MakeSplurt.splurtCount -= 100;
+            SFXManager.Instance.PlaySFX("trash");
+            MakeSplurt.splurtCount -= 500;
             Destroy(this.gameObject);
         }
     }

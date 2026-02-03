@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour
     //timer 
     public bool isTimerOver;
     
-    // scene management
-    public bool SceneLoadCondition = false;
-    public string SceneName;
-
     // Events
     public event EventHandler OnGameOver;
     public event EventHandler OnGameWin;
@@ -62,22 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //MakeSplurt.splurtCount = 0;
 
-        //string sceneName = SceneManager.GetActiveScene().name;
-        //if (sceneName == "MainScene")
-        //{
-        //    StartCoroutine(WaitThenSplurt(new Vector3(0.825f, 2f, -1.4f), 5));
-        //}
-        //if (sceneName == "Kitchen")
-        //{
-        //    StartCoroutine(WaitThenSplurt(new Vector3(0.9f, 0.9f, -2.5f), 7));
-        //}
-        ////if (sceneName == "MainScene")
-        ////{
-        ////    StartCoroutine(WaitThenSplurt(Vector3.zero, 3));
-        ////}
-        //PlayBackgroundMusic();
     }
 
     private void OnEnable()
@@ -124,11 +105,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // make sure to both set the condition as true, and name the specific scene.
-        if (SceneLoadCondition)
-        {
-            SceneManager.LoadScene(SceneName);
-        }
 
     }
 

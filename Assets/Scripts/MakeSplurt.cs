@@ -14,13 +14,15 @@ public class MakeSplurt : MonoBehaviour
     public Vector2 sizeRange = new Vector2(.05f, .3f);
     public Vector3 launchMod = new Vector3(3, 7, 3);
 
+    void Awake()
+    {
+        splurtCount = 0;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameManager.Instance.InitializeSplurt += InitializeSplurt_InitialSplurt;
-        splurtCount = 0;
-        //splurtsCreated = 0;
 
     }
 

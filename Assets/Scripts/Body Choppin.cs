@@ -8,6 +8,8 @@ public class BodyChoppin : MonoBehaviour
     public GameObject legs;
 
     public MakeSplurt splurter;
+
+    [SerializeField] private int splurtPerBody = 1000;
     
 
     private string state = "HEALTHY";
@@ -16,20 +18,22 @@ public class BodyChoppin : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        MakeSplurt.splurtCount += 100;
+        if (state == "HEALTHY")
+        {
+            MakeSplurt.splurtCount += splurtPerBody;
+            Debug.Log(MakeSplurt.splurtCount);
+        }
+
         splurter = GameObject.Find("GameManager").GetComponent<MakeSplurt>();
     
         splurter.beginSplurt(default(GameObject), 50, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(2, 3, 2));
-            // print(this.transform.position + new Vector3(0, 1f, 0));
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (Keyboard.current.spaceKey.wasPressedThisFrame) {
-        //     chopBody();
-        // }
+
     }
 
     public void chopBody()
@@ -40,10 +44,7 @@ public class BodyChoppin : MonoBehaviour
             newSliced.GetComponent<BodyChoppin>().choppable = false;
             newSliced.GetComponent<BodyChoppin>().state = "CHOPPED";
 
-            splurter.beginSplurt(default(GameObject), 10, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(2, 3, 2));
-            //print(this.transform.position + new Vector3(0, 1f, 0));
-
-            MakeSplurt.splurtCount -= 100;
+            splurter.beginSplurt(default(GameObject), 15, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(2, 3, 2));
 
             Destroy(this.gameObject);
         }   
@@ -54,10 +55,7 @@ public class BodyChoppin : MonoBehaviour
             Instantiate(torso, this.transform.position, this.transform.rotation);
             Instantiate(legs, this.transform.position, this.transform.rotation);
             
-            splurter.beginSplurt(default(GameObject), 15, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(3, 5, 3));
-            //print(this.transform.position + new Vector3(0, 1f, 0));
-
-            MakeSplurt.splurtCount -= 100;
+            splurter.beginSplurt(default(GameObject), 20, this.transform.position + new Vector3(0, 1f, 0), new Vector2(.02f, .2f), new Vector3(3, 5, 3));
 
             Destroy(this.gameObject);
         }

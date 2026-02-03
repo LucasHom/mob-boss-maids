@@ -68,13 +68,4 @@ public class splurtMovement : MonoBehaviour
         transform.SetParent(collision.transform, true);
     }
 
-    //void OnTriggerStay(Collider other) 
-    //{
-    //    if (other.gameObject.tag == "Clean") {
-    //        //print("cleaned!");
-    //        MakeSplurt.splurtCount--;
-    //        Destroy(gameObject);
-    
-    //    }
-    //}
 }
