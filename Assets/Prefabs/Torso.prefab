@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1882856993343858040}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BoddyTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 5662178570731797081}
   - component: {fileID: 7097482039034000063}
   - component: {fileID: 7302730357025984692}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body_Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7884949485527325679}
   - component: {fileID: 7954010011815840825}
   - component: {fileID: 8943258469993709630}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Eyelashes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 202113234402583191}
   - component: {fileID: 4279730647140751227}
   - component: {fileID: 7550252025779481430}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Hair7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 3671464993997501533}
   - component: {fileID: -5864770232644695330}
   - component: {fileID: 1101916227817258444}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Torso
   m_TagString: interactable
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 8267870071984299994}
   - component: {fileID: 4661239051249854593}
   - component: {fileID: 8853586446305482018}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Beard6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 6043460578422108776}
   - component: {fileID: 4717059854040228843}
   - component: {fileID: 4272851331811008358}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 2436620312980775408}
   - component: {fileID: 82609630187898565}
   - component: {fileID: 8044666194101933827}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Eyebrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 5536231531217107887}
   - component: {fileID: 1388004930817524759}
   - component: {fileID: 3924021708724735340}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 5140525236739889985}
   - component: {fileID: 6810305531058718372}
   - component: {fileID: 1665813178826637290}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 8577849291352548368}
   - component: {fileID: 5321659874614447466}
   - component: {fileID: 8011042693571794323}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body_Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 4237279718924218820}
   - component: {fileID: 1252408767489444405}
   - component: {fileID: 969088843767921849}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Moustache4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1180,7 +1180,7 @@ GameObject:
   - component: {fileID: 5983423448791157079}
   - component: {fileID: 6875912866177496590}
   - component: {fileID: 1299075555075598634}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1270,7 +1270,7 @@ GameObject:
   - component: {fileID: 4622998330779095106}
   - component: {fileID: 2642622599022957186}
   - component: {fileID: 9190186892401928745}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1360,7 +1360,7 @@ GameObject:
   - component: {fileID: 6612950299666836172}
   - component: {fileID: 8991809950517636039}
   - component: {fileID: 2449386584485896694}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Body_Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
