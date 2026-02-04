@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float bgMusicVolume = 0.5f;
     private AudioSource audioSource;
 
+    //Game over
+    private GameObject blackScreen;
+
     private void Awake()
     {
         // Singleton setup
@@ -74,6 +77,23 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene loaded: " + scene.name);
+        isGameOver = false;
+
+
+
+        blackScreen = GameObject.Find("blackScreen");
+
+        if (blackScreen != null)
+        {
+            Debug.Log("BlackScreen found!");
+        }
+        else
+        {
+            Debug.LogWarning("No BlackScreen object found in scene!");
+        }
+
+        blackScreen.SetActive(false);
+
 
         // Equivalent of "Start" for each new scene
         if (scene.name == "MainScene")
@@ -87,6 +107,14 @@ public class GameManager : MonoBehaviour
 
         PlayBackgroundMusic(); // optional: continue music if needed
         isGameWin = false;
+    }
+
+    private bool HasNextScene()
+    {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
+
+        return currentIndex < totalScenes - 1;
     }
 
 
@@ -120,8 +148,17 @@ public class GameManager : MonoBehaviour
 
         isGameOver = true;
         OnGameOver?.Invoke(this, EventArgs.Empty);
-        Debug.Log("game over!");
+        StartCoroutine(GameOverSequence());
+    }
 
+    private IEnumerator GameOverSequence()
+    {
+        audioSource.Pause();
+
+        blackScreen.SetActive(true);
+        SFXManager.Instance.PlaySFX("dead");
+        yield return new WaitForSeconds(10f);
+        audioSource.UnPause();
         SceneManager.LoadScene("StartScene");
     }
 
@@ -133,11 +170,27 @@ public class GameManager : MonoBehaviour
         OnGameWin?.Invoke(this, EventArgs.Empty);
         Debug.Log("you win!");
         Debug.Log(SceneManager.GetActiveScene().name);
-        if (SceneManager.GetActiveScene().name != "StartScene")
+        if (HasNextScene())
         {
-            LoadNextScene();
+            if (SceneManager.GetActiveScene().name != "StartScene")
+            {
+                LoadNextScene();
+            }
         }
+        else
+        {
+            StartCoroutine(EndingSequence());
+        }
+    }
 
+    private IEnumerator EndingSequence()
+    {
+        audioSource.Pause();
+        blackScreen.SetActive(true);
+        SFXManager.Instance.PlaySFX("ending");
+        yield return new WaitForSeconds(20f);
+        audioSource.UnPause();
+        SceneManager.LoadScene("StartScene");
     }
 
     private void LoadNextScene()

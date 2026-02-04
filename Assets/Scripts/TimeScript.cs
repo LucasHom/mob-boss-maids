@@ -9,7 +9,7 @@ public class TimeScript : MonoBehaviour
 {
     public TMP_Text timeText;
     [SerializeField] private float totalSeconds;
-    private float secondTimer;
+    [SerializeField] private float secondTimer;
     private bool isRunning;
 
     // public static float fiveMinuteLength = 3.125f; // 3.125 means that it's a five minute day

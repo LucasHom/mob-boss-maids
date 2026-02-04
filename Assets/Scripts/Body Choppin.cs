@@ -66,6 +66,7 @@ public class BodyChoppin : MonoBehaviour
     {
         GameObject axe = GameObject.Find("Axe");
         if (collision.gameObject == axe && choppable) {
+            SFXManager.Instance.PlaySFX("chop");
             chopBody();
             choppable = false;
         }

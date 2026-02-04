@@ -85,3 +85,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 72cad9404dbc0fd48ab0305854a383d6, type: 3}
   - name: trash
     clip: {fileID: 8300000, guid: 1783b09b6178483448ef5f7e6b8c678f, type: 3}
+  - name: dead
+    clip: {fileID: 8300000, guid: 85f4ed64130dccb4eb2e5b21a4faa625, type: 3}
+  - name: chop
+    clip: {fileID: 8300000, guid: 4d2102cb1758bee6e8c6009e5971aa92, type: 3}
+  - name: ending
+    clip: {fileID: 8300000, guid: 64a862f720fc27944926780181d250ea, type: 3}

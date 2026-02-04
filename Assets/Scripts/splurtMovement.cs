@@ -68,4 +68,14 @@ public class splurtMovement : MonoBehaviour
         transform.SetParent(collision.transform, true);
     }
 
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+        MakeSplurt.splurtCount--;
+        if (MakeSplurt.splurtCount < 0)
+        {
+            MakeSplurt.splurtCount = 0;
+        }
+    }
+
 }
